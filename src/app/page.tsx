@@ -7,19 +7,18 @@ import { ProductShowcase } from "@/components/ProductShowcase";
 import { FAQs } from "@/components/FAQs";
 import { CallToAction } from "@/components/CallToAction";
 import { Footer } from "@/components/Footer";
+import CodeScan from "@/components/CodeScan";
 
 export default function Home() {
   return (
     <>
       <Banner />
-      <Navbar />
       <Hero />
       {/* <LogoTicker /> */}
       <Features />
       <ProductShowcase />
       <FAQs />
       <CallToAction />
-      <Footer />
     </>
   );
 }
