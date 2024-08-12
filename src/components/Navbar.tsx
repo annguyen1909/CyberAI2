@@ -1,9 +1,13 @@
 'use client'
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { useState } from 'react';
+import { navLinks } from '@/constants';
 
 
 export const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen);
@@ -87,21 +91,11 @@ export const Navbar = () => {
         </a>
       </div>
       <div className="hidden md:flex space-x-8 items-center">
-        <a href="#" className="hover:text-red-500 transition-colors duration-300">
-          Home
-        </a>
-        <a href="#" className="hover:text-red-500 transition-colors duration-300">
-          Scan
-        </a>
-        <a href="#" className="hover:text-red-500 transition-colors duration-300">
-          Dashboard
-        </a>
-        <a href="#" className="hover:text-red-500 transition-colors duration-300">
-          Help
-        </a>
-        <a href="#" className="hover:text-red-500 transition-colors duration-300">
-          Account
-        </a>
+      {navLinks.map(({route, label}) => {
+              return <Link href={route} key={label} className={'hover:text-red-500 transition-colors duration-300'}>
+                <p>{label}</p>
+              </Link>
+            } )}
       </div>
       <div className="md:hidden">
         <button
@@ -131,24 +125,11 @@ export const Navbar = () => {
     {isMobileMenuOpen && (
       <div className="md:hidden bg-black">
         <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-          <a href="#" className="block text-white hover:bg-gray-800 px-3 py-2 rounded-md text-base font-medium transition-colors duration-300">
-            Home
-          </a>
-          <a href="#" className="block text-white hover:bg-gray-800 px-3 py-2 rounded-md text-base font-medium transition-colors duration-300">
-            About
-          </a>
-          <a href="#" className="block text-white hover:bg-gray-800 px-3 py-2 rounded-md text-base font-medium transition-colors duration-300">
-            Services
-          </a>
-          <a href="#" className="block text-white hover:bg-gray-800 px-3 py-2 rounded-md text-base font-medium transition-colors duration-300">
-            Blog
-          </a>
-          <a href="#" className="block text-white hover:bg-gray-800 px-3 py-2 rounded-md text-base font-medium transition-colors duration-300">
-            Portfolio
-          </a>
-          <a href="#" className="block text-white hover:bg-gray-800 px-3 py-2 rounded-md text-base font-medium transition-colors duration-300">
-            Contact
-          </a>
+        {navLinks.map(({route, label}) => {
+              return <Link href={route} key={label} className={'block text-white hover:bg-gray-800 px-3 py-2 rounded-md text-base font-medium transition-colors duration-300'}>
+                <p>{label}</p>
+              </Link>
+            } )}
         </div>
       </div>
     )}

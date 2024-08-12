@@ -1,6 +1,8 @@
+import Link from "next/link";
+import { navLinks } from "@/constants";
 export const Footer = () => {
   return (
-    <footer className="bg-gray-900 text-gray-300 py-12">
+    <footer className="bg-black text-gray-300 py-12">
     <div className="container mx-auto px-4">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 text-center">
         {/* Company Info */}
@@ -11,28 +13,19 @@ export const Footer = () => {
           </p>
         </div>
 
-        {/* Useful Links */}
         <div className="w-full mb-8 md:mb-0">
-          <h2 className="text-white text-xl font-bold mb-4">Useful Links</h2>
           <ul>
-            <li className="mb-2">
-              <a href="#" className="hover:text-white transition-colors">Home</a>
-            </li>
-            <li className="mb-2">
-              <a href="#" className="hover:text-white transition-colors">About Us</a>
-            </li>
-            <li className="mb-2">
-              <a href="#" className="hover:text-white transition-colors">Services</a>
-            </li>
-            <li className="mb-2">
-              <a href="#" className="hover:text-white transition-colors">Contact</a>
-            </li>
+          {navLinks.map(({route, label}) => {
+              return <Link href={route} key={label} className={'block text-white hover:bg-gray-800 px-3 py-2 rounded-md text-base font-medium transition-colors duration-300'}>
+                <p>{label}</p>
+              </Link>
+            } )}
           </ul>
         </div>
 
         {/* Newsletter Subscription */}
         <div className="w-full mb-8 md:mb-0">
-          <h2 className="text-white text-xl font-bold mb-4">Subscribe to Our Newsletter</h2>
+          <h2 className="text-white text-xl font-bold mb-4">Subscribe</h2>
           <form>
             <input
               type="email"

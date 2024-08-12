@@ -30,10 +30,10 @@ const CodeScan: React.FC = () => {
   };
 
   return (
-    <div className="container mx-auto px-4 py-8">
-      <h1 className="text-3xl font-bold text-center mb-6">Code Scan</h1>
+    <div className="bg-gradient-to-r from-black via-zinc-900 to-black min-w-full min-h-[50svh] container mx-auto px-4 py-14">
+      <h1 className="text-white text-3xl font-bold text-center mb-6">Code Scan</h1>
 
-      <form onSubmit={handleSubmit} className="bg-white shadow-md rounded-lg p-8 max-w-lg mx-auto">
+      <form onSubmit={handleSubmit} className="bg-black shadow-md rounded-lg p-8 max-w-lg mx-auto">
         <div className="mb-4">
           <label className="block text-gray-700 text-sm font-bold mb-2">
             Upload Code File
