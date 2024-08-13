@@ -22,7 +22,6 @@ const CodeScan: React.FC = () => {
     setLoading(true);
     setResults(null);
 
-    // Simulate an API call
     setTimeout(() => {
       setResults('Code scan completed successfully.');
       setLoading(false);

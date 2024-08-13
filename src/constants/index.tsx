@@ -12,6 +12,10 @@ export const navLinks = [
       label: "Dashboard",
     },
     {
+    route: "/community",
+    label: "Community",
+    },
+    {
       route: "/help",
       label: "Help",
       imgURL: "/icons/help.svg"
